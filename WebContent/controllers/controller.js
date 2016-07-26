@@ -15,7 +15,7 @@ function emailRouteConfig($routeProvider, $locationProvider){
 		{
 			redirectTo: "/"
 		});
-	//$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode({enabled: true, requireBase: false});
 };
 
 // Bind the route configuration to the app module
