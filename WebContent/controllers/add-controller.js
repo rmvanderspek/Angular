@@ -9,7 +9,7 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		$scope.action.add = function() {
 			var message = {};
 			message.date = $filter('date')(new Date(), "MMM d, yyyy HH:mm:ss");
-			messages.push({
+			messages.splice(0,0,{
 				id: $scope.action.getNewId(), sender: $scope.sender, subject: $scope.subject,
 				date: message.date, recipients: [$scope.reciever],
 				message: $scope.message
