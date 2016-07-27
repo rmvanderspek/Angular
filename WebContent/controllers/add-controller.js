@@ -16,6 +16,8 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 			});
 			
 			$scope.action.resetFields();
+			$scope.$parent.succesMessage = "Your e-mail is now saved.";
+			$location.path(".//");
 		}
 		
 		$scope.action.resetFields = function() {

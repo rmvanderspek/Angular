@@ -10,6 +10,7 @@
 		<td>{{message.date}}</td>
 	</tr>
 	<tr>
-		<td colspan=3 align="center"><button ng-click="navigate.add()">Add</button></td>
+		<td colspan=2 align="center"><button ng-click="navigate.add(); action.clear()">Add</button></td>
 	</tr>
 </table>
+<div ng-click="action.clear()">{{succesMessage}}</div>
