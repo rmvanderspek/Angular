@@ -1,2 +1,22 @@
 <h1>Add new e-mail</h1>
-<button ng-click="navigate.back()">Back</button>
+<table>
+	<tr>
+		<td>To:</td>
+		<td><input type="text" ng-model="reciever" /></td>
+	</tr>
+	<tr>
+		<td>From:</td>
+		<td><input type="text" ng-model="sender" /></td>
+	</tr>
+	<tr>
+		<td>Subject:</td>
+		<td><input type="text" ng-model="subject" /></td>
+	</tr>
+	<tr>
+		<td>Message:</td>
+		<td><textarea ng-model="message"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan=2 align="center"><button ng-click="navigate.back()">Back</button> <button ng-click="action.add()">Add</button></td>
+	</tr>
+</table>
