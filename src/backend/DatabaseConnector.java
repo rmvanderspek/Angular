@@ -33,10 +33,14 @@ public class DatabaseConnector {
         return conn;
     }
     
-    public boolean addItem(String sender, String receiver, String subject, Date date){
+    public boolean addItem(Item item){
+    	String sender = item.getSender();
+    	String receiver = item.getReceiver();
+    	String subject = item.getSubject();
+    	Date date = item.getDate();
+    	
     	PreparedStatement pstmt = null;
     	String updateString = "INSERT Items (sender, receiver, subject, date) VALUES (?,?,?,?);";
-    	boolean succes = false;
     	
     	try {
     		pstmt = conn.prepareStatement(updateString);
