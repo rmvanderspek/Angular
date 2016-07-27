@@ -12,9 +12,18 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location",
 				date: 'Dec 7, 2013 12:32:00', recipients: [$scope.reciever],
 				message: $scope.message
 			});
+			
+			$scope.action.resetFields();
 		}
 		
-		var getNewId = function() {
+		$scope.action.resetFields = function() {
+			$scope.sender = "";
+			$scope.subject = "";
+			$scope.recipients = "";
+			$scope.message = "";
+		}
+		
+		$scope.action.getNewId = function() {
 			var highestId = -1;
 			for(var i = 0; i < messages.length; i++) {
 				if(messages[i].id > highestId) {
