@@ -8,7 +8,7 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location",
 		$scope.action = {};
 		$scope.action.add = function() {
 			messages.push({
-				id: getNewId(), sender: $scope.sender, subject: $scope.subject,
+				id: $scope.action.getNewId(), sender: $scope.sender, subject: $scope.subject,
 				date: 'Dec 7, 2013 12:32:00', recipients: [$scope.reciever],
 				message: $scope.message
 			});
@@ -19,7 +19,7 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location",
 		$scope.action.resetFields = function() {
 			$scope.sender = "";
 			$scope.subject = "";
-			$scope.recipients = "";
+			$scope.reciever = "";
 			$scope.message = "";
 		}
 		
