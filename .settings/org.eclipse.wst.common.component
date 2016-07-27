@@ -2,7 +2,7 @@
     <wb-module deploy-name="ng-view">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="ng-view"/>
         <property name="java-output-path" value="/ng-view/build/classes"/>
+        <property name="context-root" value="Angular"/>
     </wb-module>
 </project-modules>
