@@ -40,6 +40,7 @@ public class AMail {
     @PUT
     @Consumes("application/xml")
     public void putXml(String content) {
+    	
     }
 
 }
