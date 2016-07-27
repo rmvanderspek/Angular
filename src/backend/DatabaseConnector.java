@@ -62,7 +62,7 @@ public class DatabaseConnector {
     public static void main(String[] args) throws SQLException{
     	DatabaseConnector dc = new DatabaseConnector();
         Connection conn = dc.getConnection();
-    	dc.addItem("test", "test2", "subject", new Date());
+    	System.out.println(dc.addItem("test", "test2", "subject", new Date()));
     }
     
 }
