@@ -1,5 +1,5 @@
-angular.module("AMail").controller("AddCtrl", ["$scope", "$location",
-    function($scope, $location) {
+angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
+    function($scope, $location, $filter) {
 		$scope.navigate = {};
 		$scope.navigate.back = function() {
 			$location.path(".//");
@@ -7,9 +7,11 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location",
 		
 		$scope.action = {};
 		$scope.action.add = function() {
+			var message = {};
+			message.date = $filter('date')(new Date(), "MMM d, yyyy HH:mm:ss");
 			messages.push({
 				id: $scope.action.getNewId(), sender: $scope.sender, subject: $scope.subject,
-				date: 'Dec 7, 2013 12:32:00', recipients: [$scope.reciever],
+				date: message.date, recipients: [$scope.reciever],
 				message: $scope.message
 			});
 			
