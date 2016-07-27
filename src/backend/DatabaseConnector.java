@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -63,10 +65,44 @@ public class DatabaseConnector {
     	
     }
     
+    public ArrayList<Item> getItems(){
+    	ArrayList<Item> items = new ArrayList<Item>();
+    	
+    	Statement stmt = null;
+    	String query = "SELECT * FROM Items";
+    	ResultSet rs = null;
+    	
+    	try {
+    		stmt = conn.createStatement();
+    		rs = stmt.executeQuery(query);
+    		
+    		while(rs.next()){
+    			int id = rs.getInt(1);
+    			String sender = rs.getString(2);
+    			String receiver = rs.getString(3);
+    			String subject = rs.getString(4);
+    			String dateString = rs.getString(5);
+    			DateFormat df = DateFormat.getInstance();
+    			
+    			Date date = df.parse(dateString);
+    			
+    			Item item = new Item(id, sender, receiver, subject, date);
+    			items.add(item);
+    		}
+    	}
+    	catch(SQLException e){
+    		e.printStackTrace();
+    	} catch (ParseException e) {
+			e.printStackTrace();
+		}
+    	return items;
+    }
+    
     public static void main(String[] args) throws SQLException{
     	DatabaseConnector dc = new DatabaseConnector();
         Connection conn = dc.getConnection();
-    	System.out.println(dc.addItem("test", "test2", "subject", new Date()));
+    	System.out.println(dc.addItem(new Item("test4", "test42", "subject4", new Date())));
+    	System.out.println(dc.getItems());
     }
     
 }
