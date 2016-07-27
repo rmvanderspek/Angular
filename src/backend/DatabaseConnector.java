@@ -35,7 +35,7 @@ public class DatabaseConnector {
     
     public boolean addItem(String sender, String receiver, String subject, Date date){
     	PreparedStatement pstmt = null;
-    	String updateString = "INSERT INTO Items VALUES (?,?,?,?);";
+    	String updateString = "INSERT Items (sender, receiver, subject, date) VALUES (?,?,?,?);";
     	boolean succes = false;
     	
     	try {
@@ -44,9 +44,9 @@ public class DatabaseConnector {
     		String dateString = df.format(date);
     		
     		pstmt.setString(1, sender);
-    		pstmt.setString(2,  receiver);
+    		pstmt.setString(2, receiver);
     		pstmt.setString(3, subject);
-    		pstmt.setString(4,  dateString);
+    		pstmt.setString(4, dateString);
     		
     		pstmt.executeUpdate();
     	}
@@ -57,6 +57,12 @@ public class DatabaseConnector {
     	
     	return true;
     	
+    }
+    
+    public static void main(String[] args) throws SQLException{
+    	DatabaseConnector dc = new DatabaseConnector();
+        Connection conn = dc.getConnection();
+    	dc.addItem("test", "test2", "subject", new Date());
     }
     
 }
