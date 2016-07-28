@@ -72,7 +72,10 @@ public class Item {
 		this.date = date;
 	};
 	
-	
+	@Override
+	public String toString() {
+		return getId() + ", " + getSender() + ", " + getReceiver() + ", " + getDate() + ", " + getSubject() + "; ";
+	}
 	
 	
 }
