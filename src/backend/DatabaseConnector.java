@@ -56,9 +56,10 @@ public class DatabaseConnector {
 		String receiver = item.getReceiver();
     	String subject = item.getSubject();
     	Date date = item.getDate();
+    	String message = item.getMessage();
     	
     	PreparedStatement pstmt = null;
-    	String updateString = "INSERT Items (sender, receiver, subject, date) VALUES (?,?,?,?);";
+    	String updateString = "INSERT Items (sender, receiver, subject, date, message) VALUES (?,?,?,?);";
     	
     	try {
     		pstmt = conn.prepareStatement(updateString);
@@ -69,6 +70,7 @@ public class DatabaseConnector {
     		pstmt.setString(2, receiver);
     		pstmt.setString(3, subject);
     		pstmt.setString(4, dateString);
+    		pstmt.setString(5, message);
     		
     		pstmt.executeUpdate();
     	}
@@ -99,10 +101,11 @@ public class DatabaseConnector {
     			String subject = rs.getString(4);
     			String dateString = rs.getString(5);
     			DateFormat df = DateFormat.getInstance();
+    			String message = rs.getString(6);
     			
     			Date date = df.parse(dateString);
     			
-    			Item item = new Item(id, sender, receiver, subject, date);
+    			Item item = new Item(id, sender, receiver, subject, date, message);
     			items.add(item);
     		}
     	}

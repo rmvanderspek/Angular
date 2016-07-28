@@ -12,19 +12,20 @@ public class Item {
 	private String receiver;
 	private String subject;
 	private Date date;
+	private String message;
 	
 	public Item(){
 		
 	}
 	
-	public Item(String sender, String receiver, String subject, Date date){
+	public Item(String sender, String receiver, String subject, Date date, String message){
 		this.sender = sender;
 		this.receiver = receiver;
 		this.subject = subject;
 		this.date = date;
 	}
 	
-	public Item(int id, String sender, String receiver, String subject, Date date){
+	public Item(int id, String sender, String receiver, String subject, Date date, String message){
 		this.id = id;
 		this.sender = sender;
 		this.receiver = receiver;
@@ -71,11 +72,20 @@ public class Item {
 	public void setDate(Date date) {
 		this.date = date;
 	};
-	
+
 	@Override
 	public String toString() {
 		return getId() + ", " + getSender() + ", " + getReceiver() + ", " + getDate() + ", " + getSubject() + "; ";
 	}
+
+	public void setMessage(String message){
+		this.message = message;
+	}
+	
+	public String getMessage(){
+		return message;
+	}
+
 	
 	
 }
