@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
-@Path("generic")
+@Path("/api/add")
 public class AMail {
     @SuppressWarnings("unused")
     @Context
