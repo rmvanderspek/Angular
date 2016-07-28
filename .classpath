@@ -15,11 +15,11 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="lib" path="D:/Git/Angular/sqljdbc4.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/Git/Angular/sqljdbc.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/data/hli21423/Downloads/eclipselink-javax.persistence-2.0.jar/eclipselink-javax.persistence-2.0.jar"/>
-	<classpathentry kind="lib" path="D:/javaEE6training/libraries/resteasy/jaxb-api-2.2.3.jar"/>
-	<classpathentry kind="lib" path="D:/javaEE6training/libraries/resteasy/jaxb-impl-2.2.4.jar"/>
-	<classpathentry kind="lib" path="D:/javaEE6training/libraries/resteasy/jaxrs-api-2.3.5.Final.jar"/>
-	<classpathentry kind="lib" path="D:/javaEE6training/libraries/resteasy/resteasy-jaxb-provider-2.3.5.Final.jar"/>
-	<classpathentry kind="lib" path="D:/javaEE6training/libraries/resteasy/resteasy-jaxrs-2.3.5.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/eclipselink-javax.persistence-2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/jaxb-api-2.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/jaxb-impl-2.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/jaxrs-api-2.3.5.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/resteasy-jaxb-provider-2.3.5.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Git/Angular/src/resteasy-jaxrs-2.3.5.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
