@@ -32,7 +32,7 @@ public class Item {
 		this.subject = subject;
 		this.date = date;
 	}
-	
+		
 	public int getId(){
 		return id;
 	}
