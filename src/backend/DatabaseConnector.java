@@ -18,17 +18,27 @@ public class DatabaseConnector {
     private String serverName = "jdbc:sqlserver://hanzeltog.database.windows.net:1433;database=testDataBase;user=hanzeltog@hanzeltog;password=!H4Nz3lT0@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
     private Connection conn;
     
+    static {
+    	try {
+    		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    	} catch(ClassNotFoundException ex) {
+    		ex.printStackTrace();
+    	}
+    }
+    
     public DatabaseConnector() {
     	try {
     		conn = getConnection();
     	} catch (SQLException ex) {
     		ex.printStackTrace();
+    		System.out.println("Connection is: " +conn);
     	}
     }
     
     private Connection getConnection() throws SQLException {
 
         if (conn == null) {
+        	
             Properties connectionProps = new Properties();
             connectionProps.put("user", "hanzeltog@hanzeltog");
             connectionProps.put("password", "!H4Nz3lT0@");
@@ -41,8 +51,9 @@ public class DatabaseConnector {
     }
     
     public boolean addItem(Item item){
+    	
     	String sender = item.getSender();
-    	String receiver = item.getReceiver();
+		String receiver = item.getReceiver();
     	String subject = item.getSubject();
     	Date date = item.getDate();
     	
@@ -99,7 +110,8 @@ public class DatabaseConnector {
     		e.printStackTrace();
     	} catch (ParseException e) {
 			e.printStackTrace();
-		}
+		} 
+
     	return items;
     }
     
