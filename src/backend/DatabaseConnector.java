@@ -15,13 +15,18 @@ import java.util.Properties;
 
 public class DatabaseConnector {
 	
-	String dbms = "sqlserver";
-    String serverName = "jdbc:sqlserver://hanzeltog.database.windows.net:1433;database=testDataBase;user=hanzeltog@hanzeltog;password=!H4Nz3lT0@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-    Connection conn;
-    Statement ST;
-    ResultSet RS;
+    private String serverName = "jdbc:sqlserver://hanzeltog.database.windows.net:1433;database=testDataBase;user=hanzeltog@hanzeltog;password=!H4Nz3lT0@;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    private Connection conn;
     
-    public Connection getConnection() throws SQLException {
+    public DatabaseConnector() {
+    	try {
+    		conn = getConnection();
+    	} catch (SQLException ex) {
+    		ex.printStackTrace();
+    	}
+    }
+    
+    private Connection getConnection() throws SQLException {
 
         if (conn == null) {
             Properties connectionProps = new Properties();
@@ -99,10 +104,6 @@ public class DatabaseConnector {
     }
     
     public static void main(String[] args) throws SQLException{
-    	DatabaseConnector dc = new DatabaseConnector();
-        Connection conn = dc.getConnection();
-    	System.out.println(dc.addItem(new Item("test4", "test42", "subject4", new Date())));
-    	System.out.println(dc.getItems());
     }
     
 }
