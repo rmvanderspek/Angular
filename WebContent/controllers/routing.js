@@ -11,6 +11,11 @@ function emailRouteConfig($routeProvider, $locationProvider){
 			templateUrl: "views/detail.html",
 			controller: "DetailCtrl"
 		}
+	).when("/getList",
+			{
+		templateUrl: "views/getList.html",
+		controller: "getListCtrl"
+			}
 	).when("/add",
 		{
 			templateUrl: "views/add.html",

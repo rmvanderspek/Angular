@@ -1,16 +1,17 @@
-<table>
+<table  ng-init = "getItems()">
 	<tr>
 		<td><strong>Sender</strong></td>
 		<td><strong>Subject</strong></td>
 		<td><strong>Date</strong></td>
 	</tr>
-	<tr ng-repeat = "message in messages">
-		<td>{{message.sender}}</td>
-		<td><a href="./view/{{message.id}}">{{message.subject}}</a></td>
-		<td>{{message.date}}</td>
+	<tr ng-repeat = "item in items">
+		<td>{{item.sender}}</td>
+		<td><a href="./view/{{item.id}}">{{item.subject}}</a></td>
+		<td>{{item.date}}</td>
 	</tr>
 	<tr>
 		<td colspan=2 align="center"><button ng-click="navigate.add(); action.clear()">Add</button></td>
 	</tr>
 </table>
+
 <div ng-click="action.clear()">{{succesMessage}}</div>

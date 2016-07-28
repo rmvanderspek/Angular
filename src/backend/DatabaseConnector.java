@@ -118,6 +118,40 @@ public class DatabaseConnector {
     	return items;
     }
     
+    public Item getItem(int id){
+    	PreparedStatement pstmt = null;
+    	String query = "SELECT * FROM Items WHERE ID = ?";
+    	ResultSet rs = null;
+    	
+    	Item item = null;
+    	
+    	try {
+    		
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setInt(1, id);
+    		rs = pstmt.executeQuery();
+    		
+    		while (rs.next()){
+    			String sender = rs.getString(2);
+    			String receiver = rs.getString(3);
+    			String subject = rs.getString(4);
+    			String dateString = rs.getString(5);
+    			DateFormat df = DateFormat.getInstance();
+    			Date date = df.parse(dateString);
+    			String message = rs.getString(6);
+    			item = new Item(sender, receiver, subject, date, message);
+    		}
+
+    	}
+    	catch (SQLException e){
+    		e.printStackTrace();
+    	} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return item;
+    }
+    
     public static void main(String[] args) throws SQLException{
     }
     
