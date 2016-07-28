@@ -72,7 +72,12 @@ public class Item {
 	public void setDate(Date date) {
 		this.date = date;
 	};
-	
+
+	@Override
+	public String toString() {
+		return getId() + ", " + getSender() + ", " + getReceiver() + ", " + getDate() + ", " + getSubject() + "; ";
+	}
+
 	public void setMessage(String message){
 		this.message = message;
 	}
@@ -80,8 +85,7 @@ public class Item {
 	public String getMessage(){
 		return message;
 	}
-	
-	
+
 	
 	
 }
