@@ -1,9 +1,9 @@
-<div><strong>Subject:</strong> {{message.subject}}</div>
-<div><strong>Sender:</strong> {{message.sender}}</div>
-<div><strong>Date:</strong> {{message.date}}</div>
+<div><strong>Subject:</strong> {{item.subject}}</div>
+<div><strong>Sender:</strong> {{item.sender}}</div>
+<div><strong>Date:</strong> {{item.date}}</div>
 <div>
-	<strong>To:{{test}}</strong>
-	<span ng-repeat="recipient in message.recipients">{{recipient}}</span>
+	<strong>To: {{item.receiver}}</strong>
+	<span ng-repeat="recipient in item.recipients">{{recipient}}</span>
 </div>
-<div>{{message.message}}</div>
+<div>{{item.message}}</div>
 <a href="./">Back to message list</a>

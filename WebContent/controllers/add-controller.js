@@ -1,5 +1,5 @@
-angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
-    function($scope, $location, $filter) {
+angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter", "$http",
+    function($scope, $location, $filter, $http) {
 		$scope.navigate = {};
 		$scope.navigate.back = function() {
 			$location.path(".//");
@@ -7,13 +7,24 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		
 		$scope.action = {};
 		$scope.action.add = function() {
-			var message = {};
-			message.date = $filter('date')(new Date(), "MMM d, yyyy HH:mm:ss");
-			messages.splice(0,0,{
-				id: $scope.action.getNewId(), sender: $scope.sender, subject: $scope.subject,
-				date: message.date, recipients: [$scope.reciever],
-				message: $scope.message
+			$http({
+			    method : 'POST',
+			    url : "http://localhost:8080/Angular/resources/addItem",
+			    data : {
+			        'sender' : $scope.sender,
+			        'receiver' : $scope.receiver,
+			        'subject' : $scope.subject,
+			        'date' : $scope.date,
+			        'message' : $scope.message
+			    },
+			    headers : {
+			        'Content-Type' : 'application/x-www-form-urlencoded'
+			    }
+			}).success(function (data) {
+			    console.log(' data ');
 			});
+			
+			
 			
 			$scope.action.resetFields();
 			$scope.$parent.succesMessage = "Your e-mail is now saved.";
@@ -29,9 +40,9 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		
 		$scope.action.getNewId = function() {
 			var highestId = -1;
-			for(var i = 0; i < messages.length; i++) {
-				if(messages[i].id > highestId) {
-					highestId = messages[i].id;
+			for(var i = 0; i < items.length; i++) {
+				if(items[i].id > highestId) {
+					highestId = items[i].id;
 				}
 			}
 			return highestId + 1;
