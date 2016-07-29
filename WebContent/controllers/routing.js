@@ -27,7 +27,7 @@ function emailRouteConfig($routeProvider, $locationProvider){
 app.config(emailRouteConfig);
 
 
-//Some fake emails
+//Initialize items array
 items = [];
 
 
