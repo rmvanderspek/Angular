@@ -15,7 +15,7 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		$scope.action.add = function() {
 			$http({
 			    method : 'POST',
-			    url : "http://localhost:8080/Angular/resources/addItem",
+			    url : "resources/addItem",
 			    params : {
 			        'sender' : $scope.sender,
 			        'receiver' : $scope.receiver,
