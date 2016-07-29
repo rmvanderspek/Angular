@@ -16,7 +16,7 @@ angular.module("AMail").controller("ListCtrl", ["$scope", "$location", "$http",
 		
 	    $scope.getItems = function() {
 
-	        $http({method : 'GET', url : "http://localhost:8080/Angular/resources/list"})
+	        $http({method : 'GET', url : "resources/list"})
 	            .success(function(data, status) {
 	                items = data;
 	                $scope.items = data;
