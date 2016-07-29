@@ -23,7 +23,6 @@ angular.module("AMail").controller("ListCtrl", ["$scope", "$location", "$http", 
 	            .success(function(data, status) {
 	                items = data;
 	                $scope.items = data;
-	                $scope.repeatFunction();
 	            })
 	            .error(function(data, status) {
 	                alert("Error");
