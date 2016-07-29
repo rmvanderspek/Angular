@@ -1,16 +1,23 @@
-<table  ng-init = "getItems()">
-	<tr>
-		<td><strong>Sender</strong></td>
-		<td><strong>Subject</strong></td>
-		<td><strong>Date</strong></td>
-	</tr>
-	<tr ng-repeat = "item in items">
-		<td>{{item.sender}}</td>
-		<td><a href="./view/{{item.id}}">{{item.subject}}</a></td>
-		<td>{{item.date}}</td>
-	</tr>
-	<tr>
-		<td colspan=2 align="center"><button ng-click="navigate.add(); action.clear()">Add</button></td>
-	</tr>
-</table>
-<div ng-click="action.clear()">{{succesMessage}}</div>
+<div class="container">
+	<div class="col-md-5">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3>E-mail list</h3></div>
+			<table  class="table table-striped" ng-init = "getItems()">
+				<tr>
+					<th><strong>Sender</strong></th>
+					<th><strong>Subject</strong></th>
+					<th><strong>Date</strong></th>
+				</tr>
+				<tr ng-repeat = "item in items">
+					<td>{{item.sender}}</td>
+					<td><a href="./view/{{item.id}}">{{item.subject}}</a></td>
+					<td>{{item.date}}</td>
+				</tr>
+				<tr>
+					<td colspan=3 align="center"><p><button class="btn btn-primary" ng-click="navigate.add(); action.clear()">Add</button></p></td>
+				</tr>
+			</table>
+			<div ng-click="action.clear()">{{succesMessage}}</div>
+		</div>
+	</div>
+</div>
