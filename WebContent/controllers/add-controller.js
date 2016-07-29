@@ -4,13 +4,12 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		$scope.subject = "";
 		$scope.receiver = "";
 		$scope.message = "";
-		$scope.date = "2016-07-28T12:09:00";
 			
 			
 		$scope.navigate = {};
 		$scope.navigate.back = function() {
 			$location.path(".//");
-		}
+		};
 		
 		$scope.action = {};
 		$scope.action.add = function() {
@@ -21,7 +20,6 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 			        'sender' : $scope.sender,
 			        'receiver' : $scope.receiver,
 			        'subject' : $scope.subject,
-			       'dateString' : $scope.date,
 			         'message' : $scope.message
 			    },
 			    headers : {
@@ -36,14 +34,14 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 			$scope.action.resetFields();
 			$scope.$parent.succesMessage = "Your e-mail is now saved.";
 			$location.path(".//");
-		}
+		};
 		
 		$scope.action.resetFields = function() {
 			$scope.sender = "";
 			$scope.subject = "";
 			$scope.receiver = "";
 			$scope.message = "";
-		}
+		};
 		
 		$scope.action.getNewId = function() {
 			var highestId = -1;
@@ -53,6 +51,6 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 				}
 			}
 			return highestId + 1;
-		}
+		};
 	}
 ]);

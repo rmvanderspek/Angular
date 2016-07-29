@@ -16,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 public class List {
     
 	@GET
-	//@Path("/getList/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<Item> getItems() {
 		DatabaseConnector db = new DatabaseConnector();
