@@ -98,6 +98,7 @@ public class DatabaseConnector {
     			int id = rs.getInt(1);
     			String sender = rs.getString(2);
     			String receiver = rs.getString(3);
+    			System.out.println(receiver);
     			String subject = rs.getString(4);
     			String dateString = rs.getString(5);
     			DateFormat df = DateFormat.getInstance();

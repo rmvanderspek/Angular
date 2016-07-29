@@ -23,6 +23,7 @@ public class Item {
 		this.receiver = receiver;
 		this.subject = subject;
 		this.date = date;
+		this.message = message;
 	}
 	
 	public Item(int id, String sender, String receiver, String subject, Date date, String message){
@@ -31,6 +32,7 @@ public class Item {
 		this.receiver = receiver;
 		this.subject = subject;
 		this.date = date;
+		this.message = message;
 	}
 		
 	public int getId(){
