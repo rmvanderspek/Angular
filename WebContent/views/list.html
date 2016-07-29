@@ -8,7 +8,7 @@
 					<th><strong>Subject</strong></th>
 					<th><strong>Date</strong></th>
 				</tr>
-				<tr ng-repeat = "item in items | orderBy : 'date'">
+				<tr ng-repeat = "item in items | orderBy : 'date' : true">
 					<td>{{item.sender}}</td>
 					<td><a href="./view/{{item.id}}">{{item.subject}}</a></td>
 					<td>{{item.date}}</td>
