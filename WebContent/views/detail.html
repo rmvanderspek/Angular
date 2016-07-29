@@ -1,9 +1,29 @@
-<div><strong>Subject:</strong> {{item.subject}}</div>
-<div><strong>Sender:</strong> {{item.sender}}</div>
-<div><strong>Date:</strong> {{item.date}}</div>
-<div>
-	<strong>To: {{item.receiver}}</strong>
-	<span ng-repeat="recipient in item.recipients">{{recipient}}</span>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3>{{item.subject}}</h3></div>
+			<div class="panel-body">
+				
+				<div class="col-md-6 col-md-offset-3">
+					<table class="table">
+						<tr>
+							<td><strong>Sender:</strong></td>
+							<td>{{item.sender}}</td>
+						</tr>
+						<tr>
+							<td><strong>Date:</strong></td>
+							<td>{{item.date}}</td>
+						</tr>
+						<tr>
+							<td><strong>To:</strong></td>
+							<td>{{item.receiver}}</td>
+						</tr>
+					</table>
+				</div>	
+			</div>
+			
+			<div>{{item.message}}</div>
+			<button class="btn btn-primary" ng-click="navigate.back()">Back</button> 
+		</div>
+	</div>
 </div>
-<div>{{item.message}}</div>
-<a href="./">Back to message list</a>
