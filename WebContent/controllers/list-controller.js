@@ -32,5 +32,10 @@ angular.module("AMail").controller("ListCtrl", ["$scope", "$location", "$http", 
 	    $scope.repeatFunction = $interval(function() {
 	    	$scope.getItems();
 	    }, 10000);
+	    
+	    // If $routeUpdate is changed, refresh list
+	    $scope.$watch("$routeUpdate", function() {
+	    	$scope.getItems();
+	    });
 	}
 ]);
