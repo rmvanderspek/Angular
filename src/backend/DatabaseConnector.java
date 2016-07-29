@@ -59,7 +59,7 @@ public class DatabaseConnector {
     	String message = item.getMessage();
     	
     	PreparedStatement pstmt = null;
-    	String updateString = "INSERT Items (sender, receiver, subject, date, message) VALUES (?,?,?,?);";
+    	String updateString = "INSERT Items (sender, receiver, subject, date, message) VALUES (?,?,?,?,?);";
     	
     	try {
     		pstmt = conn.prepareStatement(updateString);

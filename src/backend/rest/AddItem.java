@@ -4,6 +4,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import backend.DatabaseConnector;
 import backend.Item;
@@ -23,22 +24,23 @@ public class AddItem {
     
 	@POST
 	//@Path("/getList/")
+	@Produces("application/x-www-form-urlencoded")
 	public Response addItem(
-			@FormParam("sender") String sender, 
-			@FormParam("receiver") String receiver,
-			@FormParam("subject") String subject,
-			@FormParam("dateString") String dateString,
-			@FormParam("message") String message){
+			@QueryParam("sender") String sender, 
+			@QueryParam("receiver") String receiver,
+			@QueryParam("subject") String subject,
+			//@QueryParam("dateString") String dateString,
+			@QueryParam("message") String message){
 		
 		DatabaseConnector db = new DatabaseConnector();
 		DateFormat df = DateFormat.getInstance();
-		Date date = null;
-		try {
+		Date date = new Date();
+		/*try {
 			date = df.parse(dateString);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		db.addItem(new Item(sender, receiver, subject, date, message));
 		
 		return Response.status(200)
