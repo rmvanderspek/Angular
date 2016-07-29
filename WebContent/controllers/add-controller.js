@@ -13,6 +13,7 @@ angular.module("AMail").controller("AddCtrl", ["$scope", "$location", "$filter",
 		
 		$scope.action = {};
 		$scope.action.add = function() {
+			console.log($scope.sender + $scope.receiver + $scope.subject + $scope.message);
 			$http({
 			    method : 'POST',
 			    url : "resources/addItem",
